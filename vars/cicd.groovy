@@ -13,8 +13,7 @@ def newDeploy(jobname,ip,context)
   sh "scp /var/lib/jenkins/workspace/${jobname}/webapp/target/webapp.war ubuntu@${ip}:/var/lib/tomcat9/webapps/${context}.war"
 }
 
-def newTesting(repo,jobname)
+def newTesting(jobname)
 {
-  git "${repo}"
   sh "java -jar /var/lib/jenkins/workspace/${jobname}/testing.jar"
 }
